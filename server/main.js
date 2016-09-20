@@ -9,15 +9,20 @@ Meteor.startup(() => {
   });
 
 var data = {
-  "customer": {
-    "id" : 4693106948,
-    "tags": "New Custom Search"
+  "id": 4693106948,
+  data:{
+    "customer": {
+      "id": 4693106948,
+      "tags": "New Custom Search"
+    }
   }
 };
-  var ret = api.modifyCustomer({"id" : 4693106948}, data, function (err, data, header){
-  console.log (err);
-  console.log (data);
-  console.log (header);
+  var ret = api.modifyCustomer( data, function (err, data, header){
+    /*
+    console.log (err);
+    console.log (data);
+    console.log (header);
+    */
 });
 //console.log (ret);
 //console.log (api);

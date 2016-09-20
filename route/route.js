@@ -15,6 +15,22 @@ Router.route('/webhook', {name:'webhook', where: 'server',
           result.customer_saved_searches.forEach (function(item, index) {
             if (item.query == body.email)
             {
+              var data = {
+                "id": body.id,
+                data:{
+                  "customer": {
+                    "id": body.id,
+                    "tags": "saved search"
+                  }
+                }
+              };
+              api.modifyCustomer( data, function (err, data, header){
+                /*
+                 console.log (err);
+                 console.log (data);
+                 console.log (header);
+                 */
+              });
               /*
               var ordercount = api.countOrders();
               var update_json = { "customer": {"id":body.id, "tags": "saved search"}};
